@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: tripare_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tripare_admin
+      POSTGRES_PASSWORD: tripare_local_password
+      POSTGRES_DB: tripare
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # The official postgres image runs every *.sql / *.sh file placed
+      # directly under /docker-entrypoint-initdb.d/ in filename order, but
+      # only on first boot with an empty data directory (i.e. an empty
+      # db_data volume). Numeric prefixes below control run order:
+      #   001/002 = schema migrations, 003 = seed data.
+      - ./migrations/001_create_tables.sql:/docker-entrypoint-initdb.d/001_create_tables.sql:ro
+      - ./migrations/002_add_indexes.sql:/docker-entrypoint-initdb.d/002_add_indexes.sql:ro
+      - ./seed/003_seed_data.sql:/docker-entrypoint-initdb.d/003_seed_data.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tripare_admin -d tripare"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  db_data:

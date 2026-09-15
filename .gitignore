@@ -1,0 +1,25 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+# NOTE: .terraform.lock.hcl is intentionally NOT ignored -- it should be
+# committed so everyone (and CI) resolves the exact same provider versions.
+
+# Local backup dumps produced by scripts/backup.sh
+backups/
+
+# Docker / local dev
+.env
+
+# OS / editor
+.DS_Store
+*.swp
