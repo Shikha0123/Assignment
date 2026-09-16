@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: tripare_local_password
       POSTGRES_DB: tripare
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
       # The official postgres image runs every *.sql / *.sh file placed

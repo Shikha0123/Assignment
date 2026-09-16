@@ -2,7 +2,7 @@ aws_region = "us-east-1"
 azs        = ["us-east-1a", "us-east-1b"]
 
 container_image = "public.ecr.aws/docker/library/nginx:latest"
-container_port  = 8080
+container_port  = 80
 
 db_engine                  = "postgres"
 db_instance_class          = "db.t3.micro"
