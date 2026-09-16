@@ -41,7 +41,7 @@ Internet
 │  Application Load       │  SG: 80/443 from 0.0.0.0/0
 │  Balancer                │
 └───────────┬─────────────┘
-            │  only port 8080, only from ALB's SG
+            │  only port 80, only from ALB's SG
             ▼
 ┌─────────────────────────┐  private "app" subnets (2 AZs)
 │  ECS Fargate service     │  SG: from ALB SG only
