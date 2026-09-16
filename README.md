@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Tripare DevOps Assessment — Terraform + Database Reliability
 
 This repository is my submission for the DevOps Engineer assessment: AWS
@@ -302,6 +302,5 @@ Compose stack or against a real RDS endpoint by overriding those variables.
 - The Terraform remote backend (S3 + DynamoDB lock table) is stubbed out
   commented in `backend.tf` — wire it to a real bucket before using this
   against an actual AWS account.
-=======
-# Assignment
->>>>>>> 925579e4a25d64317d644defae489de67e2f6941
+  
+
